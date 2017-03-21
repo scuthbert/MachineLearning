@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{subfigure} 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{hyperref}
+\usepackage{natbib}
+\urlstyle{same}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage[accepted]{icml2015} 
+
+\icmltitlerunning{Writing Assignment}
+\title{Writing Assignment}
+
+\begin{document} 
+\twocolumn[
+\icmltitle{Writing Assignment}
+\icmlauthor{Samuel Cuthbertson}{samuel.cuthbertson@colorado.edu}
+
+\vskip 0.3in]
+
+\section*{Abstract}
+Recently, Facebook, Twitter and other social networks have come under extreme criticism for perpetuating fake news stories through various News Feed/Trending/Popular Topic algorithms. Most of this fallout is due to the controversial 2016 Presidential Election, but has been a problem for long before this election cycle. In fact, the issue of factual news has been an issue as long as the news has existed. The way that Machine Learning amplifies this problem is in how the various algorithms that affect what social media users perceive are trained on how to best please those users in order to ensure use of that platform, which is notably not the same goal as presenting either the most truthful nor the least biased headlines. This has the dramatic effect of amplifying reinforcement for the existing views of each user, isolating groups into ``Echo Chambers'' of similar opinions and beliefs. There is no obvious solution to this, since the motivations behind news providers and social media sites is overwhelmingly monetary. Overall, the ethical standards of algorithmic news tend to be ignored out of a focus on profit, for better or worse. 
+
+\section*{How News Spreads}
+Before social media was widespread, news was largely available through a small number of outlets. Notice the way that specific newspapers are referenced in \citet{barber_newspaper_2001}. The large number of magazines that were available in the ``heyday of print'' dwarfs the number of publications a century ago, when news was scarce and fact-checking was simple to do because of the small number of stories. \cite{eadie_21st_2009}
+
+Likewise, the online facet of news in recent years has meant that there are more outlets for news today than every before. And that proliferation leads to less fact checking per article, which in turn naturally leads to significant difficulty in determining whether a given source is accurate. \cite{bbc_quiz:_2016,johnson_us_2016} In addition, \citet{del_vicario_spreading_2016} found that the factual nature of a given story has a negative affect on how well that story will spread though a social network. The authors studied the diffusion on Facebook of both science stories and conspiracy rumors, and found that while science stories don't have a positive correlation between lifetime and interest, rumors have a strong positive relationship between lifetime and size. In addition, the authors found that rumors travel among groups of users with a similar ``polarization'': they belong to the same echo chamber. 
+
+In order to have an intuition into how machine learning processes can affect news spread, it will be useful to think of how sites like Facebook and Twitter model news spread. In a study done by Facebook, the connections between users were split into degrees of closeness, based mostly on number of comments exchanged on posts and posts shared. \cite{bakshy_rethinking_2012} The same paper also analyzed how users consume information, and found that users are more likely to share posts from close friends, and that users are also more likely to share opinions and viewpoints with these close friends. It's interesting to notice that the conclusion of this paper was that since we have a weak tie with most of our friends on Facebook, with whom we are more likely to have dissimilar opinions with, we are therefor more likely to see more diverse news. This goes directly against how Facebook has described the operation of their News Feed - the showing of what users want to see, in prioritized order of how much they want to see it, which by nature filters out things contrary to the user - and is very troubling. \cite{backstrom_facebook_2013} 
+
+\section*{How Machine Learning Affects News Spread}
+The way in which machine learning processes can affect news spread is a very complex topic. Most large sites (Facebook, Twitter, Google News) don't publish any of their algorithms for determining what articles are promoted, and are rather pointedly secretive about both their process and any updates to it. \cite{jeffries_twitter_2014,lecher_facebook_2016} However, Facebook has publicly stated that the purpose of their site is to attract viewers. \cite{shontell_mark_2014} Twitter has recently set their algorithmic timeline to automatically enabled, a which means that ``Tweets you are likely to care about most will show up first in your timeline. We choose them based on accounts you interact with most, Tweets you engage with.'' \cite{twitter_about_2016} Facebook's News Feed has almost the exact same approach, of promoting content tailored to each user's past preferences for content consumption. \cite{facebook_inc._10-k_2015} On the surface, this is an obviously good strategy. It means that not all users will see an article about a certain sporting event unless they tend towards following that sport, which unarguably improves the experience of being on that site. However, such a naive approach leads to numerous problems. The most commonly noted problem is echo chambers of similar opinions forming, especially on topics that benefit from diverse viewpoints. As studied in \citet{del_vicario_spreading_2016}, echo chambers are encouraged by such an approach to user satisfaction. Interestingly, the authors could not find a way to algorithmicly destroy such echo chambers even when purposefully taking an approach attempting to; in their model, the users were too good at filtering out information they didn't agree with. 
+
+\section*{Similar Issues}
+Machine Learning in particular can add to the confusion, since quite often our models behave in a counter intuitive manner. Notably, companies like Google and Tesla have overlooked edge cases on computer vision systems which have led to incorrect classifications. In Google's case, a system for tagging photos' content mistakenly identified black people as gorillas. \cite{dougherty_google_????} In Tesla's case, their autopilot labeled a sideways semi-truck trailer as a billboard, and did not recognize it as something that could be collided with. \cite{golson_tesla_2016} While both of these are obvious in retrospect, neither was caught in testing. Google and Tesla both share an approach of vigorous testing in simulation, and trust in this ``unit tests'' approach to finding most issues. The downside of this is that part of the testing is expected to be done by the end consumer, which leads to incidents such as the two mentioned here. \cite{wacker_just_2015}
+
+\section*{How Ethics Apply to Algorithmic News}
+Ethically, any algorithm or machine learning process which affects what a portion of the population sees is expected to adhere to the same ethics that would be expected of a human editor in the same position. \cite{npr_npr_????,asne_asne_2016} A complication with this approach is due to all the ambiguity of ethics in news. Currently, it's up to each individual news provider to provide and enforce whatever standard they impose on themselves. They are other systems in place, like the various societies (Society of Professional Journalists, Associated Press Managing Editors, American Society of News Editors) which have adopted codes of conduct and hold their member liable to holding to those codes. \cite{apme_apme_2008,sjp_spj_2014,asne_asne_2016} However, sometimes even these standards are not met by human editors. As mentioned in \citet{grush_cnn_2016}, the editorial process of vetting stories broke down for several mainline publications (The Independent, The New York Post, Variety) when something as small as a Tweet about CNN airing porn in Boston was taken to be fact and stories where published. It's unclear how much of this style of ``publish a story for the headline'' is in fact due to the publicity offered to a catchy headline by M.L. systems trained on how susceptible humans are to those headlines. 
+
+The important issue is, however, the fact that sites like Facebook, Twitter, and Google News have no code of ethics pertinent to news nor adhere to any journalistic codes. Twitter speaks primarily about business ethics and in protecting business interests through their use of machine learning, and Facebook is famously terse about it's decision making process. \cite{lecher_facebook_2016,jeffries_twitter_2014,twitter_twitter_2016} Google News is similar, and refrains from commenting on their view of ethics except for the famous ``don't be evil'' mantra. \cite{platts_digital_2014}
+
+\section*{Potential Solutions}
+Most of the proposed solutions to this problem go so far as saying that ``Facebook should fact check everything shared on their site'', without going into any detail about a feasible fix. One very notable exception is one man who created a simple web browser plug in which checks links on Facebook against a list of ``known'' suspicious news sites, and would add an indicator to that headline to show that it was likely false. \cite{cellan-jones_fake_2016} Similarly, three college students created a different plugin which cross-checks an article's headline against other news sources to determine the probability that the headline is false. \cite{luckett_heres_2016} Both of these fall prey to having some source which is accurate, and don't guard against new headlines from a new source. 
+
+\section*{Conclusion}
+In conclusion, to be ethical computer scientists we must understand the realm of the world which our programs will affect. If we write algorithms which affect how people view the news, we must understand the ethics of news. Similarly, if we want to write algorithms which determine how a car drives, we must understand what is expected from a driver in all situations that a driver (and therefor our system) could possibly be found in. This is no easy feat, and is nigh impossible to accomplish when time and knowledge is limited: as they are in commercial operations. There are many examples of mistakes made when an edge case was missed, only a handful are mentioned in this paper. In particular, News Feed/Trending/Popular Topic algorithms have fallen prey to an ambiguity of what their role is in the realm of news, and have in turn fed into a cycle of feeding views into ethically questionable news. There is no clear an obvious solution to this particular problem, despite several being presented. The ethics of the situation are clear and well defined, they just aren't be followed. I wouldn't expect this issue to be solved until there's a solution which benefits the organizations profiting from this system.
+
+\newpage
+\bibliography{Zotero}
+\bibliographystyle{icml2015}
+
+\end{document} 

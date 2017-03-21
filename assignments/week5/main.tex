@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{subfigure} 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{hyperref}
+
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage[accepted]{icml2015} 
+
+\icmltitlerunning{Week 5 Homework}
+\title{Week 5 Homework}
+
+\begin{document} 
+\twocolumn[
+\icmltitle{Week 5 Homework}
+\icmlauthor{Samuel Cuthbertson}{samuel.cuthbertson@colorado.edu}
+
+\vskip 0.3in
+]
+
+\section{Answers to Part A}
+\subsection{Smaller hypothesis spaces tend to have higher Rademacher complexity than larger ones.}
+False. Since the \textit{maximum} Rademcaher complexity grows proportionally to the size of the hypothesis space, larger hypothesis spaces tend to have larger Rademacher complexity. 
+
+\subsection{The VC-dimension is the maximum number of points that can be shattered in an infinite number of ways.}
+True. For example, the VC-Dimension of a line shattering points on a plane is 3, since all combinations of 3 points on a plane can be shattered an infinite number of ways by a line. 
+
+\subsection{VMs, logistic regression, and perceptrons are all examples of "families of functions."}
+True, since linear classifiers were defined as synonymous with families of functions in lecture. 
+
+\subsection{SVMs, Naïve Bayes, and logistic regression all find a hyperplane to separate data.}
+True, since they are all linear classifiers and that is what linear classifiers do. Naive Bayes is a bit of an oddball, but \href{http://stats.stackexchange.com/questions/142215/how-is-naive-bayes-a-linear-classifier}{this stack overflow post} does a great job explaining how it is in fact a linear classifier in a specific feature space. 
+
+\subsection{Which has higher entropy? A rare word or a common word?}
+A rare word, since it takes more bits to store when using a something like morse code as a mechanism for compression. 
+
+\subsection{What is a Rademacher variable, and what function does it serve in terms of determining Rademacher complexity?}
+A Rademacher variable is a $\sigma$ where \[ \sigma = \begin{cases} 
+      1 & with\: probability\: .5 \\
+      -1 & with\: probability\: .5  
+   \end{cases}
+\]
+Rademacher variables are used to see how a completely random classifier perform, and is useful in determining the performance of a given classifier.  
+
+\section{Vowpal Wabbit Work}
+I split the data into a training set of 1000 and a test set of 197 examples for this, and used the attached scripts \texttt{vwtrain.sh} and \texttt{vwtest.bash} Using a hinge loss function, VW only correctly classified 107 of the test examples, or only 54\%. This is in direct contrast with when using either \texttt{--ksvm} or a logistic loss function, where VW correctly classified 197 out of 197 examples. When using l2 regularization with a lambda of 1, VW also correctly classified 100\% of the examples.
+
+I'm not familiar enough with loss functions, l2 regularization or VW to understand what this tells us about the data, but there is clearly something either wrong with hinge or incorrect in my testing methodology. 
+
+\section{Two Dataset Projects}
+\subsection{First Project - Ship Nationality}
+A project that interests me involves the \href{https://www.kaggle.com/kaggle/climate-data-from-ocean-ships}{Ocean Ship Logbook} dataset, and is classifying the nationality of ships based off of other features in the dataset (Log Notes, Locations, Dates, etc...). This is an interesting project because of the dependent nature of features and classes, and is very attractive to me. 
+
+\subsection{Second Project - Climate Data}
+The other project that really intrigues me is analysis on a \href{https://www.kaggle.com/freecodecamp/2016-new-coder-survey-}{new coder survey}. I'd be curious to see the correlations from various sources to getting a job in industry, and from the impact different backgrounds have on what methods people used to learn. This is less of a classification project and more of a data analysis project, but would be interesting nonetheless.  
+
+\end{document} 
